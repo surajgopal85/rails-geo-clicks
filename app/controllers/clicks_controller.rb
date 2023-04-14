@@ -83,8 +83,9 @@ class ClicksController < ApplicationController
       @click = Click.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def click_params
       params.require(:click).permit(:name, :address)
     end
+
+
 end
