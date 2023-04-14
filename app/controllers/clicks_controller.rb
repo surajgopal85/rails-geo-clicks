@@ -11,6 +11,18 @@ class ClicksController < ApplicationController
         lng: click.longitude
       }
     end
+
+    # get country
+    @data = []
+    @clicks.each do |click|
+      result = Geocoder.search([click.latitude, click.longitude])
+      country = result.first.country
+      @data << country
+    end
+
+    @data_hash = Hash.new(0)
+    @data.each{|key| @data_hash[key] += 1}
+    # raise
   end
 
   # GET /clicks/1 or /clicks/1.json
