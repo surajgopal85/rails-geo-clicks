@@ -5,7 +5,7 @@ class ClicksController < ApplicationController
   def index
     @clicks = Click.all
     @click = Click.new
-  # The `geocoded` scope filters only flats with coordinates
+  # 'geocoded' scope filters clicks with lat/lng
     @markers = @clicks.geocoded.map do |click|
       {
         lat: click.latitude,
