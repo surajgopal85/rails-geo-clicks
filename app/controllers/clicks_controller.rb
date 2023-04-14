@@ -4,6 +4,7 @@ class ClicksController < ApplicationController
   # GET /clicks or /clicks.json
   def index
     @clicks = Click.all
+    @click = Click.new
   # The `geocoded` scope filters only flats with coordinates
     @markers = @clicks.geocoded.map do |click|
       {
@@ -44,7 +45,7 @@ class ClicksController < ApplicationController
 
     respond_to do |format|
       if @click.save
-        format.html { redirect_to click_url(@click), notice: "Click was successfully created." }
+        format.html { redirect_to clicks_path, notice: "Click was successfully created." }
         format.json { render :show, status: :created, location: @click }
       else
         format.html { render :new, status: :unprocessable_entity }

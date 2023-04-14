@@ -11,9 +11,23 @@
   <% end %>
 </div>
 
-<div class="new">
+<%# <div class="new">
   <%= link_to "Add a click!", new_click_path %>
-</div>
+<%# </div> %>
+
+<%= simple_form_for(@click) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 <table>
   <tr>
