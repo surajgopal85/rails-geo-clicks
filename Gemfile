@@ -29,6 +29,7 @@ gem "stimulus-rails"
 
 # CUSTOM
 gem "geocoder"
+gem "bootstrap-sass"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
